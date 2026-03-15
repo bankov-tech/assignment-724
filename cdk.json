@@ -1,0 +1,15 @@
+{
+  "app": "node dist/infra/app.js",
+  "watch": {
+    "include": ["**"],
+    "exclude": [
+      "README.md",
+      "cdk*.json",
+      "**/*.d.ts",
+      "**/*.js",
+      "tsconfig.json",
+      "node_modules",
+      "dist"
+    ]
+  }
+}

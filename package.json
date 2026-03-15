@@ -1,0 +1,49 @@
+{
+  "name": "tikkie-assignment",
+  "version": "1.0.0",
+  "description": "V's assignment 724",
+  "license": "UNLICENSED",
+  "author": "vasilis@bankov.tech",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx jest",
+    "test:coverage": "npx jest --coverage",
+    "build": "tsc",
+    "synth": "npx cdk synth -c stage=${STAGE:-dev}",
+    "bootstrap": "npm install && npx cdk bootstrap",
+    "clean": "rm -rf dist cdk.out",
+    "deploy": "npx cdk deploy -c stage=${STAGE:-dev} --all",
+    "deploy:db": "npx cdk deploy -c stage=${STAGE:-dev} --exclusively Database-${STAGE:-dev} ",
+    "deploy:eventbus": "npx cdk deploy -c stage=${STAGE:-dev} --exclusively EventBus-${STAGE:-dev}",
+    "deploy:api": "npx cdk deploy -c stage=${STAGE:-dev} --exclusively API-${STAGE:-dev}",
+    "pre-deploy": "npm run clean && npm run test && npm run build && npm run synth",
+    "clean-deploy": "npm run pre-deploy && npm run deploy",
+    "clean-deploy:db": "npm run pre-deploy && npm run deploy:db",
+    "clean-deploy:eventbus": "npm run pre-deploy && npm run deploy:eventbus",
+    "clean-deploy:api": "npm run pre-deploy && npm run deploy:api",
+    "destroy": "npm run build && npm run synth && npx cdk destroy -c stage=${STAGE:-dev} --all && npm run clean",
+    "lint": "prettier --check .",
+    "lint:fix": "prettier --write ."
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.161",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^25.5.0",
+    "aws-cdk": "^2.1111.0",
+    "aws-sdk-client-mock": "^4.1.0",
+    "esbuild": "^0.27.4",
+    "jest": "^30.3.0",
+    "prettier": "^3.8.1",
+    "ts-jest": "^29.4.6",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.1009.0",
+    "@aws-sdk/client-eventbridge": "^3.1009.0",
+    "@aws-sdk/lib-dynamodb": "^3.1009.0",
+    "aws-cdk-lib": "^2.243.0",
+    "constructs": "^10.5.1",
+    "zod": "^4.3.6"
+  }
+}

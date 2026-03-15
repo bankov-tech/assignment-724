@@ -1,0 +1,35 @@
+{
+  "exclude": ["node_modules", "dist"],
+  "compilerOptions": {
+    // File Layout
+    "rootDir": "./src",
+    "outDir": "./dist",
+    // Environment Settings
+    "target": "es2020",
+    "lib": ["esnext"],
+    "types": ["node", "jest"],
+    // Outputs
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+    // Stricter Typechecking Options
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    // Style Options
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noPropertyAccessFromIndexSignature": true,
+    // Other Options
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "strict": true,
+    "isolatedModules": true,
+    "noUncheckedSideEffectImports": true,
+    "moduleDetection": "force",
+    "skipLibCheck": true,
+    "preserveConstEnums": true,
+    "esModuleInterop": true
+  }
+}
